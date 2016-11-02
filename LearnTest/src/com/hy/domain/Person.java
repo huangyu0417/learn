@@ -51,6 +51,11 @@ public class Person {
 			return this.name.equals(person.getName()) && this.age == person.getAge() && this.address.equals(person.getAddress());
 		}
 	}
+	
+	@Override
+	public int hashCode() {
+		return this.name.hashCode()*31+this.age*31+this.address.hashCode()*31;
+	}
 
 	@Override
 	public String toString() {
