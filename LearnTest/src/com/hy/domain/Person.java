@@ -1,6 +1,6 @@
 package com.hy.domain;
 
-public class Person {
+public class Person implements Cloneable{
 	private String name ;
 	
 	private int age ;
@@ -61,6 +61,17 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + ", address=" + address
 				+ "]";
+	}
+	
+	@Override
+	public Object clone() {
+		Person person = null;
+		try{
+			person = (Person) super.clone();
+		}catch (CloneNotSupportedException e) {
+			System.out.println(e.getMessage());
+		}
+		return person;
 	}
 	
 }
